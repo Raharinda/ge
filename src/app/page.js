@@ -1,37 +1,29 @@
 import Image from "next/image";
+import svg from "../../public/icon.svg";
 import img from "../../public/bg.jpg";
 
 export default function Home() {
   return (
     <main>
-      <section className="flex bg-black py-3">
+      <section className="flex bg-black py-2">
         <span className="text-xs mx-auto text-white font-thin text-center">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pretium
           eget nibh vitae blandit.
         </span>
       </section>
 
-      <section className="flex text-xs font-medium px-4 sm:px-12 py-6 justify-between">
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-center sm:text-left">
+      <section className="flex text-sm font-medium px-4 sm:px-12 py-5 justify-between">
+        <div className="">
+        <img src="icon.svg" alt="An SVG of an eye" className="size-16" />
+        <span>Gemapala</span>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-center text-center sm:text-left mt-4 sm:mt-0"></div>
+
+        <div className="flex flex-col mt-4 sm:flex-row gap-4 sm:gap-8 text-center sm:text-left">
           <a href="">About the Game</a>
           <a href="">Event</a>
           <a href="">Download</a>
-        </div>
-
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-center text-center sm:text-left mt-4 sm:mt-0">
-          <span className="font-thin">Support: +1(23) 4567890</span>
-          <a
-            href=""
-            className="px-6 py-2 rounded-full border border-black transition hover:bg-black hover:text-white"
-          >
-            Login
-          </a>
-          <a
-            href=""
-            className="px-6 py-2 rounded-full border text-white bg-black border-current transition hover:bg-white hover:text-black"
-          >
-            Sign Up
-          </a>
         </div>
       </section>
 
@@ -104,19 +96,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-
-
-
-
-
-
-
-
-
-
-
-      
     </main>
   );
 }
