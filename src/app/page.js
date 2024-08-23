@@ -1,8 +1,17 @@
+"use client";
+
+import { useState } from 'react';
 import Image from "next/image";
 import svg from "../../public/icon.svg";
 import img from "../../public/bg.jpg";
 
 export default function Home() {
+  const [isThamActive, setIsThamActive] = useState(false);
+
+  const toggleTham = () => {
+    setIsThamActive(!isThamActive);
+  };
+
   return (
     <main>
       <section className="flex bg-black py-2">
@@ -13,30 +22,63 @@ export default function Home() {
       </section>
 
       <section className="flex text-sm font-medium px-4 sm:px-12 py-5 justify-between">
-        <div className="">
-        <img src="icon.svg" alt="An SVG of an eye" className="size-16" />
-        <span>Gemapala</span>
+        <div className="flex flex-wrap">
+          <img src="icon.svg" alt="An SVG of an eye" className="size-16" />
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-center text-center sm:text-left mt-4 sm:mt-0"></div>
+        <div className="hidden sm:flex flex-col sm:flex-row gap-4 sm:gap-8 items-center text-center sm:text-left mt-4 sm:mt-0"></div>
 
-        <div className="flex flex-col mt-4 sm:flex-row gap-4 sm:gap-8 text-center sm:text-left">
-          <a href="">About the Game</a>
-          <a href="">Event</a>
-          <a href="">Download</a>
+        <div className="hidden sm:flex flex-col mt-4 sm:flex-row gap-4 sm:gap-8 text-center sm:text-left">
+          <a href="" className="hover:underline hover:transition-all hover:duration-300">
+            Tentang Kami
+          </a>
+          <a href="" className="hover:underline hover:transition-all hover:duration-300">
+            Program
+          </a>
+          <a href="" className="hover:underline hover:transition-all hover:duration-300">
+            Kontak
+          </a>
+        </div>
+
+        {/* Hamburger Menu Button */}
+        <div className="sm:hidden mt-4">
+          <div className={`tham tham-e-squeeze tham-w-6 ${isThamActive ? 'tham-active' : ''}`} onClick={toggleTham}>
+            <div className="tham-box">
+              <div className="tham-inner" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hamburger Menu Content */}
+      <section
+        className={`sm:hidden fixed inset-y-0 right-0 w-64 bg-black transform transition-transform duration-300 ease-in-out z-50 ${
+          isThamActive ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex flex-col p-6 space-y-4 text-white">
+          <a href="" onClick={toggleTham} className="hover:underline hover:text-white">
+            Tentang Kami
+          </a>
+          <a href="" onClick={toggleTham} className="hover:underline hover:text-white">
+            Program
+          </a>
+          <a href="" onClick={toggleTham} className="hover:underline hover:text-white">
+            Kontak
+          </a>
         </div>
       </section>
 
       <section id="home" className="mt-16 sm:mt-32 px-4">
         <div className="container mx-auto text-center">
-          <h1 className="text-3xl font-bold">Venture Into The Unknown.</h1>
+          <h1 className="text-3xl font-bold uppercase">Gemapala</h1>
           <p className="max-w-xl m-4 mx-auto">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod
             risus eget laoreet mollis. Pellentesque placerat magna eget mi.
           </p>
           <button className="mt-6 px-8 py-3 rounded-full border border-black mx-auto transition hover:text-white hover:bg-black">
-            <a href="" className="text-md">
-              Download Now
+            <a href="#home" className="text-md">
+              Selengkapnya
             </a>
           </button>
         </div>
