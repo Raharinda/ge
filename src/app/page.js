@@ -89,7 +89,7 @@ export default function Home() {
       >
         <div className="flex flex-col space-y-4 text-white">
           <a
-            href="#"
+            href="#about"
             className="hover:underline hover:text-white"
             onClick={() => setIsThamActive(false)}
           >
@@ -139,9 +139,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className=" mx-10">
+      <section id="about" className="mx-16">
         <div>
-          <h1 className="font-bold mb-12 sm:mb-24 text-3xl sm:text-5xl">
+          <h1 className="font-bold mb-12 sm:mb-12 text-3xl sm:text-5xl">
             Prologue
           </h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-32 mb-32 text-sm sm:text-xm text-justify">
