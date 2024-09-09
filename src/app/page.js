@@ -139,12 +139,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="mx-16">
+      <section id="about" className="mx-12">
         <div>
           <h1 className="font-bold mb-12 sm:mb-12 text-3xl sm:text-5xl">
             Prologue
           </h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-32 mb-32 text-sm sm:text-xm text-justify">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 mb-32 text-sm sm:text-xm text-justify">
             <div className="flex flex-col justify-between ">
               <p className="mb-12">
                 Gemapala merupakan salah satu Organisasi siswa tingkat SMA yang
@@ -161,7 +161,7 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col justify-between">
-              <p className="mb-20">
+              <p className="mb-12">
                 These constructs known as "Colossi" are formed of both ancient
                 and advanced technology, but their origin cannot be verified.
               </p>
