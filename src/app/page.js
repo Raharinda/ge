@@ -139,7 +139,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="sm:px-10 mx-10">
+      <section id="about" className=" mx-10">
         <div>
           <h1 className="font-bold mb-12 sm:mb-24 text-3xl sm:text-5xl">
             Prologue
