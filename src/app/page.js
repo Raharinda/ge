@@ -133,7 +133,6 @@ export default function Home() {
         </nav>
       </header>
 
-
       <section id="about" className="sm:mt-16 px-4">
         <div className="container mx-auto text-center ">
           <img
@@ -147,7 +146,6 @@ export default function Home() {
             Gemapala merupakan singkatan dari Gema Muda Ganesha Pecinta Alam
             yang didirikan pada tahun 1981 oleh AKBP Tri Widianto
           </p>
-          {/* Tautan "Selengkapnya" juga mengarah ke #prologue */}
           <button className="mt-6 px-8 py-3 rounded-full border border-black mx-auto transition hover:text-white hover:bg-black">
             <a href="#prologue" className="text-md">
               Selengkapnya
@@ -163,7 +161,7 @@ export default function Home() {
       </section>
 
       {/* Prologue Section */}
-      <section id="prologue" className="mx-12">
+      <section id="prologue" className="mx-12 py-24 ">
         <div>
           <h1 className="font-bold mb-12 sm:mb-12 text-3xl sm:text-5xl">
             Tentang Kami
@@ -180,7 +178,7 @@ export default function Home() {
               <p>
                 Gemapala berdiri di Pangenjurutengah, Purworejo. Nama yang
                 digunakan waktu itu adalah Mapala Prajnaparamita. Prajnaparamita
-                diambil....
+                diambil
               </p>
             </div>
 
@@ -199,9 +197,85 @@ export default function Home() {
         </div>
       </section>
 
-      <section>
-        <div>
-          <h1 className="font-bold text-3xl">Overview</h1>
+      {/*Overview Section*/}
+      <section className="my-16">
+        <div className="">
+          <h1 className="font-bold mb-12 sm:mb-12 text-3xl sm:text-5xl ml-10">Overview</h1>
+
+          {/* Grid of 4 Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mx-10">
+            {/* Card 1 */}
+            <div className="relative group overflow-hidden">
+              <Image
+                src={img}
+                alt="Image 1"
+                className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <div className="text-white text-center p-4">
+                  <h2 className="text-xl font-semibold mb-2">Title 1</h2>
+                  <p>
+                    Deskripsi singkat mengenai gambar atau informasi yang
+                    terkait dengan gambar ini.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="relative group overflow-hidden">
+              <Image
+                src={img}
+                alt="Image 2"
+                className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <div className="text-white text-center p-4">
+                  <h2 className="text-xl font-semibold mb-2">Title 2</h2>
+                  <p>
+                    Deskripsi singkat mengenai gambar atau informasi yang
+                    terkait dengan gambar ini.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="relative group overflow-hidden">
+              <Image
+                src={img}
+                alt="Image 3"
+                className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <div className="text-white text-center p-4">
+                  <h2 className="text-xl font-semibold mb-2">Title 3</h2>
+                  <p>
+                    Deskripsi singkat mengenai gambar atau informasi yang
+                    terkait dengan gambar ini.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 4 */}
+            <div className="relative group overflow-hidden">
+              <Image
+                src={img}
+                alt="Image 4"
+                className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <div className="text-white text-center p-4">
+                  <h2 className="text-xl font-semibold mb-2">Title 4</h2>
+                  <p>
+                    Deskripsi singkat mengenai gambar atau informasi yang
+                    terkait dengan gambar ini.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
