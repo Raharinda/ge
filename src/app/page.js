@@ -215,8 +215,7 @@ export default function Home() {
                 <div className="text-white text-center p-4">
                   <h2 className="text-xl font-semibold mb-2">Title 1</h2>
                   <p>
-                    Deskripsi singkat mengenai gambar atau informasi yang
-                    terkait dengan gambar ini.
+                    Halo
                   </p>
                 </div>
               </div>
@@ -233,8 +232,7 @@ export default function Home() {
                 <div className="text-white text-center p-4">
                   <h2 className="text-xl font-semibold mb-2">Title 2</h2>
                   <p>
-                    Deskripsi singkat mengenai gambar atau informasi yang
-                    terkait dengan gambar ini.
+                    Halo
                   </p>
                 </div>
               </div>
@@ -251,8 +249,7 @@ export default function Home() {
                 <div className="text-white text-center p-4">
                   <h2 className="text-xl font-semibold mb-2">Title 3</h2>
                   <p>
-                    Deskripsi singkat mengenai gambar atau informasi yang
-                    terkait dengan gambar ini.
+                    Halo
                   </p>
                 </div>
               </div>
@@ -269,8 +266,7 @@ export default function Home() {
                 <div className="text-white text-center p-4">
                   <h2 className="text-xl font-semibold mb-2">Title 4</h2>
                   <p>
-                    Deskripsi singkat mengenai gambar atau informasi yang
-                    terkait dengan gambar ini.
+                    Halo
                   </p>
                 </div>
               </div>
