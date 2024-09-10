@@ -7,6 +7,7 @@ import img from "../image/hero.jpg";
 
 export default function Home() {
   const [isThamActive, setIsThamActive] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const navRef = useRef(null);
 
   const toggleTham = () => {
@@ -30,89 +31,110 @@ export default function Home() {
     };
   }, [isThamActive]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <main>
-      <section className="flex bg-black py-2">
-        <span className="text-xs mx-auto text-white font-thin text-center">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pretium
-          eget nibh vitae blandit.
-        </span>
-      </section>
-
-      <section className="flex text-sm font-medium px-4 sm:px-12 py-6 justify-between">
-        <div className="flex flex-wrap">
-          <img src="icon.svg" alt="An SVG of an eye" className="size-16" />
-        </div>
-
-        <div className="hidden sm:flex flex-col mt-4 sm:flex-row gap-4 sm:gap-8 text-center sm:text-left">
-          <a
-            href="#"
-            className="hover:underline hover:transition-all hover:duration-300"
-          >
-            Tentang Kami
-          </a>
-          <a
-            href="#"
-            className="hover:underline hover:transition-all hover:duration-300"
-          >
-            Program
-          </a>
-          <a
-            href="#"
-            className="hover:underline hover:transition-all hover:duration-300"
-          >
-            Kontak
-          </a>
-        </div>
-
-        {/* Hamburger Menu Button */}
-        <div className="sm:hidden mt-4">
-          <div
-            className={`tham tham-e-squeeze tham-w-6 ${
-              isThamActive ? "tham-active" : ""
-            }`}
-            onClick={toggleTham}
-          >
-            <div className="tham-box">
-              <div className="tham-inner" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Hamburger Menu Content */}
-      <section
-        ref={navRef}
-        className={`sm:hidden fixed inset-y-0 right-0 w-64 bg-black transform transition-transform duration-300 ease-in-out z-50 ${
-          isThamActive ? "translate-x-0" : "translate-x-full"
-        } p-6`}
+    <main className="pt-16">
+      <header
+        className={`bg-white fixed top-0 w-full z-50 ${
+          isScrolled ? "shadow" : ""
+        } transition-shadow duration-300`}
       >
-        <div className="flex flex-col space-y-4 text-white">
-          <a
-            href="#about"
-            className="hover:underline hover:text-white"
-            onClick={() => setIsThamActive(false)}
-          >
-            Tentang kami
-          </a>
-          <a
-            href="#"
-            className="hover:underline hover:text-white"
-            onClick={() => setIsThamActive(false)}
-          >
-            Program
-          </a>
-          <a
-            href="#"
-            className="hover:underline hover:text-white"
-            onClick={() => setIsThamActive(false)}
-          >
-            Kontak
-          </a>
-        </div>
-      </section>
+        <nav>
+          <section>
+            <div className="flex text-sm font-medium px-4 sm:px-12 py-2 justify-between">
+              <div className="flex flex-wrap">
+                <img
+                  src="icon.svg"
+                  alt="An SVG of an eye"
+                  className="size-12"
+                />
+              </div>
 
-      <section id="" className="sm:mt-10 px-4">
+              <div className="hidden sm:flex flex-col mt-4 sm:flex-row gap-4 sm:gap-8 text-center sm:text-left">
+                <a
+                  href="#prologue"
+                  className="hover:underline hover:transition-all hover:duration-300"
+                >
+                  Tentang Kami
+                </a>
+                <a
+                  href="#"
+                  className="hover:underline hover:transition-all hover:duration-300"
+                >
+                  Program
+                </a>
+                <a
+                  href="#"
+                  className="hover:underline hover:transition-all hover:duration-300"
+                >
+                  Kontak
+                </a>
+              </div>
+
+              <div className="sm:hidden mt-4">
+                <div
+                  className={`tham tham-e-squeeze tham-w-6 ${
+                    isThamActive ? "tham-active" : ""
+                  }`}
+                  onClick={toggleTham}
+                >
+                  <div className="tham-box">
+                    <div className="tham-inner" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section
+            ref={navRef}
+            className={`sm:hidden fixed inset-y-0 right-0 w-64 bg-black transform transition-transform duration-300 ease-in-out z-50 ${
+              isThamActive ? "translate-x-0" : "translate-x-full"
+            } p-6`}
+          >
+            <div className="flex flex-col space-y-4 text-white">
+              <a
+                href="#prologue"
+                className="hover:underline hover:text-white"
+                onClick={() => setIsThamActive(false)}
+              >
+                Tentang Kami
+              </a>
+              <a
+                href="#"
+                className="hover:underline hover:text-white"
+                onClick={() => setIsThamActive(false)}
+              >
+                Program
+              </a>
+              <a
+                href="#"
+                className="hover:underline hover:text-white"
+                onClick={() => setIsThamActive(false)}
+              >
+                Kontak
+              </a>
+            </div>
+          </section>
+        </nav>
+      </header>
+
+
+      <section id="about" className="sm:mt-16 px-4">
         <div className="container mx-auto text-center ">
           <img
             src="/icon.svg"
@@ -125,8 +147,9 @@ export default function Home() {
             Gemapala merupakan singkatan dari Gema Muda Ganesha Pecinta Alam
             yang didirikan pada tahun 1981 oleh AKBP Tri Widianto
           </p>
+          {/* Tautan "Selengkapnya" juga mengarah ke #prologue */}
           <button className="mt-6 px-8 py-3 rounded-full border border-black mx-auto transition hover:text-white hover:bg-black">
-            <a href="#about" className="text-md">
+            <a href="#prologue" className="text-md">
               Selengkapnya
             </a>
           </button>
@@ -139,10 +162,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="mx-12">
+      {/* Prologue Section */}
+      <section id="prologue" className="mx-12">
         <div>
           <h1 className="font-bold mb-12 sm:mb-12 text-3xl sm:text-5xl">
-            Prologue
+            Tentang Kami
           </h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 mb-32 text-sm sm:text-xm text-justify">
             <div className="flex flex-col justify-between ">
@@ -176,11 +200,87 @@ export default function Home() {
       </section>
 
       <section>
-        <div><h1 className="font-bold text-3xl">Overview</h1></div>
+        <div>
+          <h1 className="font-bold text-3xl">Overview</h1>
+        </div>
       </section>
 
-
-
+      <footer className="bg-gray-800 text-white py-2">
+        <div className="container mx-auto text-center">
+          <p className="text-sm"></p>
+          <div className="flex justify-center space-x-4 mt-4">
+            <a
+              href="#"
+              className="hover:text-gray-400 transition duration-300"
+              aria-label="Instagram"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="h-6 w-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M16 12a4 4 0 11-8 0 4 4 0 018 0zM12 14.5a8 8 0 100-5M21.5 15a9 9 0 11-15-9"
+                />
+              </svg>
+            </a>
+            <a
+              href="#"
+              className="hover:text-gray-400 transition duration-300"
+              aria-label="Twitter"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="h-6 w-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M22 4.75C22 4.45 21.85 4 21.65 3.7a.95.95 0 00-1.3-.15 10 10 0 01-6 2.15 4.75 4.75 0 01-8 3.6 3.5 3.5 0 00-4-3.3"
+                />
+              </svg>
+            </a>
+            <a
+              href="#"
+              className="hover:text-gray-400 transition duration-300"
+              aria-label="Facebook"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="h-6 w-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M18 9h-3v2h2a9 9 0 00-9-9c-5 0-8 4-8 8s4 8 8 8"
+                />
+              </svg>
+            </a>
+          </div>
+          <div className="text-sm my-2">
+            &copy; {new Date().getFullYear()} Gemapala. All rights reserved.
+          </div>
+          <p className="text-xs">
+            Designed by{" "}
+            <a href="#" className="hover:underline">
+              Raharinda
+            </a>
+          </p>
+        </div>
+      </footer>
     </main>
   );
 }

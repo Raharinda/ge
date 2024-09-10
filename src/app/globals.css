@@ -2,6 +2,12 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+}
+
 :root {
   --base:white;
   --font:black:
