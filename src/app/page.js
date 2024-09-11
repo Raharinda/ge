@@ -2,12 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import svg from "../../public/icon.svg";
 import img from "/public/hero.jpg";
-import img2 from "/public/hero2.jpg";
-import img3 from "/public/hero3.jpg";
-import Slider from "@madzadev/image-slider";
-import "@madzadev/image-slider/dist/index.css";
 
 export default function Home() {
   const [isThamActive, setIsThamActive] = useState(false);
@@ -50,9 +45,16 @@ export default function Home() {
     };
   }, []);
 
-
-
-  const images = [{ url: img.src }, { url: img2.src }, { url: img3.src }];
+  // Slider settings
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
 
   return (
     <main className="pt-16">
@@ -165,20 +167,13 @@ export default function Home() {
       </section>
 
       {/*Slider Section*/}
+  
 
-      <section className="my-24 sm:my-56">
+      <section className="my-2 sm:my-56">
         <div className="container mx-auto text-center">
-          <div className="slider-wrapper">
-            <Slider
-              imageList={images}
-              width="100%" 
-              height="550px" 
-            />
-          </div>
+          <Image src={img} alt="Background Image" className="mx-auto" />
         </div>
       </section>
-
-
 
       {/* Prologue Section */}
       <section id="prologue" className="mx-12 py-24 ">
