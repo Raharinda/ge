@@ -1,7 +1,5 @@
 import Image from "next/image";
 import img from "/public/hero.jpg";
-import img2 from "/public/hero2.jpg";
-import img3 from "/public/hero3.jpg";
 
 const Overview = () => {
   // overview section logic and styles
