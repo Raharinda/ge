@@ -7,7 +7,7 @@ const Slider = () => {
   // slider section logic and styles
   return (
     <section>
-      <section className="my-2 sm:my-56">
+      <section className="my-24 sm:my-56">
         <div className="container mx-auto text-center">
           <Image src={img} alt="Background Image" className="mx-auto" />
         </div>

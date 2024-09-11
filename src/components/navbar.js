@@ -1,137 +1,78 @@
-import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from 'react';
+import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 const Navbar = () => {
-  // navbar logic and styles
-  const [isThamActive, setIsThamActive] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const navRef = useRef(null);
-
-  const toggleTham = () => {
-    setIsThamActive(!isThamActive);
-  };
-
-  const handleClickOutside = (event) => {
-    if (navRef.current && !navRef.current.contains(event.target)) {
-      setIsThamActive(false);
-    }
-  };
-
-  useEffect(() => {
-    if (isThamActive) {
-      document.addEventListener("click", handleClickOutside);
-    } else {
-      document.removeEventListener("click", handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [isThamActive]);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 0);
     };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
   return (
-    <header>
-      <nav>
-        {/*Navbar Section*/}
-        <header
-          className={`bg-white fixed top-0 w-full z-50 ${
-            isScrolled ? "shadow" : ""
-          } transition-shadow duration-300`}
-        >
-          <nav>
-            <section>
-              <div className="flex text-sm font-medium px-4 sm:px-12 py-2 justify-between">
-                <div className="flex flex-wrap">
-                  <img
-                    src="icon.svg"
-                    alt="An SVG of an eye"
-                    className="size-12"
-                  />
-                </div>
-
-                <div className="hidden sm:flex flex-col mt-4 sm:flex-row gap-4 sm:gap-8 text-center sm:text-left">
-                  <a
-                    href="#prologue"
-                    className="hover:underline hover:transition-all hover:duration-300"
-                  >
-                    Tentang Kami
-                  </a>
-                  <a
-                    href="#"
-                    className="hover:underline hover:transition-all hover:duration-300"
-                  >
-                    Program
-                  </a>
-                  <a
-                    href="#"
-                    className="hover:underline hover:transition-all hover:duration-300"
-                  >
-                    Kontak
-                  </a>
-                </div>
-
-                <div className="sm:hidden mt-4">
-                  <div
-                    className={`tham tham-e-squeeze tham-w-6 ${
-                      isThamActive ? "tham-active" : ""
-                    }`}
-                    onClick={toggleTham}
-                  >
-                    <div className="tham-box">
-                      <div className="tham-inner" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section
-              ref={navRef}
-              className={`sm:hidden fixed inset-y-0 right-0 w-64 bg-black transform transition-transform duration-300 ease-in-out z-50 ${
-                isThamActive ? "translate-x-0" : "translate-x-full"
-              } p-6`}
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <div className="flex-shrink-0">
+            <img className="size-12" src="icon.svg" alt="Logo" />
+          </div>
+          <div className="hidden md:block">
+            <div className="ml-10 flex items-baseline space-x-4">
+              {['Tentang Kami', 'Program', 'Kontak', ].map((item) => (
+                <a key={item} href="#" className="text-gray-800 hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium">{item}</a>
+              ))}
+            </div>
+          </div>
+          <div className="hidden md:flex items-center space-x-4">
+            <button href="#" className="text-gray-800 hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium">Login</button>
+            <button className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors duration-300">Sign Up</button>
+          </div>
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-800 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
             >
-              <div className="flex flex-col space-y-4 text-white">
-                <a
-                  href="#prologue"
-                  className="hover:underline hover:text-white"
-                  onClick={() => setIsThamActive(false)}
-                >
-                  Tentang Kami
-                </a>
-                <a
-                  href="#"
-                  className="hover:underline hover:text-white"
-                  onClick={() => setIsThamActive(false)}
-                >
-                  Program
-                </a>
-                <a
-                  href="#"
-                  className="hover:underline hover:text-white"
-                  onClick={() => setIsThamActive(false)}
-                >
-                  Kontak
-                </a>
+              <span className="sr-only">Open main menu</span>
+              <svg className={`${isMenuOpen ? 'hidden' : 'block'} h-6 w-6`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              <svg className={`${isMenuOpen ? 'block' : 'hidden'} h-6 w-6`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {isMenuOpen && (
+        <div className="md:hidden bg-white shadow-xl">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            {['Tentang Kami', 'Program', 'Kontak', ].map((item) => (
+              <a key={item} href="#" className="text-gray-800 hover:bg-gray-200 block px-3 py-2 rounded-md text-base font-medium">{item}</a>
+            ))}
+          </div>
+          <div className="py-6 border-t border-gray-200">
+            <div className="flex items-center px-5 ">
+              <button href="#" className="w-full text-gray-800 hover:bg-gray-200 block px-4 py-2 rounded-md text-base font-medium">Login</button>
+              <button className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors duration-300 w-full">Sign Up</button>
+            </div>
+            <div className="mt-3 px-2 space-y-1">
+              <div className="flex justify-center space-x-6 mt-4">
+                {[FaFacebookF, FaTwitter, FaInstagram].map((Icon, index) => (
+                  <a key={index} href="#" className="text-gray-600 hover:text-gray-900">
+                    <Icon className="h-6 w-6" />
+                  </a>
+                ))}
               </div>
-            </section>
-          </nav>
-        </header>
-      </nav>
-    </header>
+            </div>
+          </div>
+        </div>
+      )}
+    </nav>
   );
 };
 
