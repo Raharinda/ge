@@ -162,7 +162,8 @@ export default function Home() {
 
           <h1 className="text-3xl font-bold uppercase">Gemapala</h1>
           <p className="max-w-xl m-4 mx-auto">
-            test
+            Gemapala merupakan singkatan dari Gema Muda Ganesha Pecinta Alam
+            yang didirikan pada tahun 1981 oleh AKBP Tri Widianto
           </p>
           <button className="mt-6 px-8 py-3 rounded-full border border-black mx-auto transition hover:text-white hover:bg-black">
             <a href="#prologue" className="text-md">
