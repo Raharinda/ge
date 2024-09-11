@@ -3,7 +3,11 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import svg from "../../public/icon.svg";
-import img from "../image/hero.jpg";
+import img from "../../public/hero.jpg";
+import img2 from "../../public/hero2.jpg";
+import img3 from "../../public/hero3.jpg";
+import Slider from "@madzadev/image-slider";
+import "@madzadev/image-slider/dist/index.css";
 
 export default function Home() {
   const [isThamActive, setIsThamActive] = useState(false);
@@ -46,8 +50,22 @@ export default function Home() {
     };
   }, []);
 
+  // Slider settings
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
+
+  const images = [{ url: img.src }, { url: img2.src }, { url: img3.src }];
+
   return (
     <main className="pt-16">
+      {/*Navbar Section*/}
       <header
         className={`bg-white fixed top-0 w-full z-50 ${
           isScrolled ? "shadow" : ""
@@ -133,6 +151,7 @@ export default function Home() {
         </nav>
       </header>
 
+      {/*Hero Section*/}
       <section id="about" className="sm:mt-16 px-4">
         <div className="container mx-auto text-center ">
           <img
@@ -154,16 +173,26 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="my-28 sm:my-56">
+      {/*Slider Section*/}
+
+      <section className="my-24 sm:my-56">
         <div className="container mx-auto text-center">
-          <Image src={img} alt="Background Image" className="mx-auto" />
+          <div className="slider-wrapper">
+            <Slider
+              imageList={images}
+              width="100%" 
+              height="550px" 
+            />
+          </div>
         </div>
       </section>
+
+
 
       {/* Prologue Section */}
       <section id="prologue" className="mx-12 py-24 ">
         <div>
-          <h1 className="font-bold mb-12 sm:mb-12 text-3xl sm:text-5xl">
+          <h1 className="font-bold sm:mb-12 text-3xl sm:text-5xl">
             Tentang Kami
           </h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 mb-32 text-sm sm:text-xm text-justify">
@@ -176,21 +205,26 @@ export default function Home() {
                 peduli terhadap pelestarian lingkungan.
               </p>
               <p>
-                Gemapala berdiri di Pangenjurutengah, Purworejo. Nama yang
-                digunakan waktu itu adalah Mapala Prajnaparamita. Prajnaparamita
-                diambil
+                Selain kegiatan petualangan, Gemapala juga sering kali terlibat
+                dalam kegiatan bakti sosial, kampanye lingkungan, serta
+                pendidikan konservasi alam untuk meningkatkan kesadaran
+                masyarakat akan pentingnya menjaga lingkungan hidup.
               </p>
             </div>
 
             <div className="flex flex-col justify-between">
               <p className="mb-12">
-                These constructs known as "Colossi" are formed of both ancient
-                and advanced technology, but their origin cannot be verified.
+                Dalam perjalanannya, Gemapala telah berperan aktif dalam
+                berbagai kegiatan alam dan kemanusiaan, baik di tingkat lokal,
+                nasional, maupun internasional. Organisasi ini juga memiliki
+                jaringan yang luas dengan kelompok pecinta alam lainnya di
+                seluruh Indonesia
               </p>
               <p>
-                A distinctly unique race, who could engage in psychic
-                communication with Colossi, once lived a life of peace in a land
-                named Eraveil. These beings were known as the Caelestites.
+                Kami bangga menjadi bagian dari sejarah panjang SMAN 1 Purworejo
+                dan terus berupaya memberikan kontribusi nyata bagi masyarakat
+                dan lingkungan, dan semoga Gemapala dapat memberikan dampak
+                positif dari masyarakat luas.
               </p>
             </div>
           </div>
@@ -200,7 +234,9 @@ export default function Home() {
       {/*Overview Section*/}
       <section className="my-16">
         <div className="">
-          <h1 className="font-bold mb-12 sm:mb-12 text-3xl sm:text-5xl ml-10">Overview</h1>
+          <h1 className="font-bold mb-12 sm:mb-12 text-3xl sm:text-5xl ml-10">
+            Overview
+          </h1>
 
           {/* Grid of 4 Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mx-10">
@@ -214,9 +250,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <div className="text-white text-center p-4">
                   <h2 className="text-xl font-semibold mb-2">Title 1</h2>
-                  <p>
-                    Halo
-                  </p>
+                  <p>Halo</p>
                 </div>
               </div>
             </div>
@@ -231,9 +265,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <div className="text-white text-center p-4">
                   <h2 className="text-xl font-semibold mb-2">Title 2</h2>
-                  <p>
-                    Halo
-                  </p>
+                  <p>Halo</p>
                 </div>
               </div>
             </div>
@@ -248,9 +280,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <div className="text-white text-center p-4">
                   <h2 className="text-xl font-semibold mb-2">Title 3</h2>
-                  <p>
-                    Halo
-                  </p>
+                  <p>Halo</p>
                 </div>
               </div>
             </div>
@@ -265,9 +295,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <div className="text-white text-center p-4">
                   <h2 className="text-xl font-semibold mb-2">Title 4</h2>
-                  <p>
-                    Halo
-                  </p>
+                  <p>Halo</p>
                 </div>
               </div>
             </div>
@@ -344,10 +372,8 @@ export default function Home() {
             &copy; {new Date().getFullYear()} Gemapala. All rights reserved.
           </div>
           <p className="text-xs">
-            Designed by{" "}
-            <a href="#" className="hover:underline">
-              Raharinda
-            </a>
+            Designed by{" Raharinda "}
+            <a href="#" className="hover:underline"></a>
           </p>
         </div>
       </footer>
