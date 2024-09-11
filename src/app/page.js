@@ -3,9 +3,9 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import svg from "../../public/icon.svg";
-import img from "../../public/hero.jpg";
-import img2 from "../../public/hero2.jpg";
-import img3 from "../../public/hero3.jpg";
+import img from "/public/hero.jpg";
+import img2 from "/public/hero2.jpg";
+import img3 from "/public/hero3.jpg";
 import Slider from "@madzadev/image-slider";
 import "@madzadev/image-slider/dist/index.css";
 
