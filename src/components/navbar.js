@@ -13,8 +13,16 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleScrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false); 
+  };
+
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
+    <nav className={`fixed top-0 w-full z-50 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
@@ -22,14 +30,20 @@ const Navbar = () => {
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              {['Tentang Kami', 'Program', 'Kontak', ].map((item) => (
-                <a key={item} href="#" className="text-gray-800 hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium">{item}</a>
+              {['Tentang Kami', 'Program', 'Kontak'].map((item, index) => (
+                <button
+                  key={item}
+                  onClick={() => handleScrollToSection(item === 'Tentang Kami' ? 'prologue' : '')}
+                  className="text-gray-800 hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  {item}
+                </button>
               ))}
             </div>
           </div>
           <div className="hidden md:flex items-center space-x-4">
             <button href="#" className="text-gray-800 hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium">Login</button>
-            <button className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors duration-300">Sign Up</button>
+            <button className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-black-700">Sign Up</button>
           </div>
           <div className="md:hidden">
             <button
@@ -51,14 +65,20 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-white shadow-xl">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {['Tentang Kami', 'Program', 'Kontak', ].map((item) => (
-              <a key={item} href="#" className="text-gray-800 hover:bg-gray-200 block px-3 py-2 rounded-md text-base font-medium">{item}</a>
+            {['Tentang Kami', 'Program', 'Kontak'].map((item) => (
+              <button
+                key={item}
+                onClick={() => handleScrollToSection(item === 'Tentang Kami' ? 'prologue' : '')}
+                className="w-full text-left text-gray-800 hover:bg-gray-200 block px-3 py-2 rounded-md text-base font-medium"
+              >
+                {item}
+              </button>
             ))}
           </div>
           <div className="py-6 border-t border-gray-200">
-            <div className="flex items-center px-5 ">
+            <div className="flex items-center px-5">
               <button href="#" className="w-full text-gray-800 hover:bg-gray-200 block px-4 py-2 rounded-md text-base font-medium">Login</button>
-              <button className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors duration-300 w-full">Sign Up</button>
+              <button className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 w-full">Sign Up</button>
             </div>
             <div className="mt-3 px-2 space-y-1">
               <div className="flex justify-center space-x-6 mt-4">
