@@ -11,6 +11,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.6.0",
     "@madzadev/image-slider": "^2.0.1",
+    "module-name": "^0.0.1-security",
     "next": "^14.2.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
