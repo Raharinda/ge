@@ -5,6 +5,7 @@ import Hero from "../components/hero";
 import Slider from "../components/slider";
 import Prologue from "../components/prologue";
 import Footer from "../components/footer";
+import ImageSlider from "../components/slider";
 
 
 
@@ -22,7 +23,7 @@ export default function Home() {
     <main className="pt-16">
       <Navbar />
       <Hero />
-      <Slider />
+      <ImageSlider />
       <Prologue />
       <Footer />
     </main>

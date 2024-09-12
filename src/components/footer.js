@@ -4,7 +4,7 @@ const Footer = () => {
     // footer section logic and styles
     return (
       <footer>
-              <footer className="bg-gray-800 text-white py-2">
+              <footer className="bg-gray-600 text-white py-2">
         <div className="container mx-auto text-center">
           <p className="text-sm"></p>
           <div className="flex justify-center space-x-4 mt-4">
