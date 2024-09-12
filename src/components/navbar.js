@@ -82,11 +82,15 @@ const Navbar = () => {
             </div>
             <div className="mt-3 px-2 space-y-1">
               <div className="flex justify-center space-x-6 mt-4">
-                {[FaFacebookF, FaTwitter, FaInstagram].map((Icon, index) => (
-                  <a key={index} href="#" className="text-gray-600 hover:text-gray-900">
-                    <Icon className="h-6 w-6" />
-                  </a>
-                ))}
+                <a href="https://www.facebook.com" className="text-gray-600 hover:text-gray-900">
+                  <FaFacebookF className="h-6 w-6" />
+                </a>
+                <a href="https://twitter.com" className="text-gray-600 hover:text-gray-900">
+                  <FaTwitter className="h-6 w-6" />
+                </a>
+                <a href="https://www.instagram.com/gemapalapurworejo/" className="text-gray-600 hover:text-gray-900">
+                  <FaInstagram className="h-6 w-6" />
+                </a>
               </div>
             </div>
           </div>
