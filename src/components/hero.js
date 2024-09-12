@@ -4,7 +4,7 @@ import img from "/public/hero.jpg";
 const Hero = () => {
   // hero section logic and styles
   return (
-    <section id="about">
+    <section id="about" className="mt-24">
             <section id="about" className="sm:mt-16 px-4">
         <div className="container mx-auto text-center ">
           <img

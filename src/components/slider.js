@@ -56,7 +56,7 @@ const ImageSlider = () => {
   };
 
   return (
-    <section className="my-8 sm:my-16 lg:my-24">
+    <section className="my-36 md:my-24 lg:my-32">
       <div className="container mx-auto px-4">
         <div className="relative overflow-hidden rounded-lg">
           <Slider {...settings}>
