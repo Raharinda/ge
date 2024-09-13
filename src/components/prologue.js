@@ -4,7 +4,7 @@ const Prologue = () => {
     <section id="prologue">
       <section id="prologue" className="mx-12">
         <div>
-          <h1 className="font-bold sm:mb-12 mb-12 text-3xl sm:text-5xl">
+          <h1 className="font-bold sm:mb-12 mb-12 pt-24 text-3xl sm:text-5xl">
             Tentang Kami
           </h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 mb-32 text-sm sm:text-xm text-justify">

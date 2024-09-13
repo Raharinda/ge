@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
-import classNames from 'classnames';
+import classNames from "classnames";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,7 +33,7 @@ const Navbar = () => {
     <nav
       className={classNames("fixed top-0 w-full z-50", {
         "bg-white shadow-md": isScrolled,
-        "bg-transparent": !isScrolled
+        "bg-transparent": !isScrolled,
       })}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,7 +52,11 @@ const Navbar = () => {
                 <button
                   key={item}
                   onClick={() =>
-                    handleScrollToSection(item.toLowerCase().replace(" ", "-"))
+                    handleScrollToSection(
+                      item === "Tentang Kami"
+                        ? "prologue"
+                        : item.toLowerCase().replace(" ", "-")
+                    )
                   }
                   className="text-gray-800 hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium"
                 >
@@ -75,7 +79,11 @@ const Navbar = () => {
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-800 hover:text-gray-900 hover:bg-gray-100"
             >
               <span className="sr-only">Open main menu</span>
-              <div className={classNames("tham tham-e-squeeze tham-w-6", { "tham-active": isMenuOpen })}>
+              <div
+                className={classNames("tham tham-e-squeeze tham-w-6", {
+                  "tham-active": isMenuOpen,
+                })}
+              >
                 <div className="tham-box">
                   <div className="tham-inner" />
                 </div>
@@ -90,7 +98,7 @@ const Navbar = () => {
           "md:hidden bg-gray-100 shadow-xl overflow-hidden transition-all duration-300 ease-in-out",
           {
             "max-h-96 opacity-100": isMenuOpen,
-            "max-h-0 opacity-0": !isMenuOpen
+            "max-h-0 opacity-0": !isMenuOpen,
           }
         )}
       >
@@ -99,7 +107,11 @@ const Navbar = () => {
             <button
               key={item}
               onClick={() =>
-                handleScrollToSection(item.toLowerCase().replace(" ", "-"))
+                handleScrollToSection(
+                  item === "Tentang Kami"
+                    ? "prologue"
+                    : item.toLowerCase().replace(" ", "-")
+                )
               }
               className="w-full text-left text-gray-800 hover:bg-gray-200 block px-3 py-2 rounded-md text-base font-medium"
             >
@@ -107,6 +119,7 @@ const Navbar = () => {
             </button>
           ))}
         </div>
+
         <div className="py-6 border-t border-gray-200">
           <div className="flex items-center px-5">
             <button className="w-full text-gray-800 hover:bg-gray-200 block px-4 py-2 rounded-md text-base font-medium">
