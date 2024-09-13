@@ -2,7 +2,7 @@ const Prologue = () => {
   // prologue section logic and styles
   return (
     <section id="prologue">
-      <section id="prologue" className="mx-12 py-24 ">
+      <section id="prologue" className="mx-12">
         <div>
           <h1 className="font-bold sm:mb-12 mb-12 text-3xl sm:text-5xl">
             Tentang Kami

@@ -8,12 +8,6 @@ import Footer from "../components/footer";
 import ImageSlider from "../components/slider";
 
 
-
-
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
-
 export default function Home() {
 
 
